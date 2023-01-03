@@ -2,7 +2,7 @@
 
 Voici notre projet Angular.
 
-Réalisé par Lucas BLANC & Lilian Derine. MASTER 1 MIAGE TD1.
+Réalisé par Lucas BLANC & Lilian DERINE. MASTER 1 MIAGE TD1.
 
 Vous pouvez retrouver la version hébergé à : https://lucas.angular.bdemiagenice.fr
 
