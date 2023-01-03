@@ -1,0 +1,68 @@
+<div class="container">
+  <br>
+  <br>
+
+  <mat-card class="mat-elevation-z5">
+    <mat-card-header>
+      <mat-card-title>{{assignementTransmis.nom}}</mat-card-title>
+      <mat-card-subtitle
+        *ngIf="assignementTransmis.dateDeRendu ">{{assignementTransmis.dateDeRendu | date}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+      <br>
+
+      <p>{{" Matière : " + assignementTransmis.matiere}}</p>
+      <img *ngIf="assignementTransmis.matiere == 'JavaScript'"
+           src="https://i1.rgstatic.net/ii/profile.image/712495153029121-1546883490651_Q512/Michel-Buffa.jpg"
+           alt="logo buffa" width="100" height="100" style="padding-right: 10px;">
+      <img *ngIf="assignementTransmis.matiere == 'JavaScript'"
+           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAkFBMVEX33x4AAAD/5h95bQ+OgBH/6B/74x9jWQz64R723h7p0hzNuRm4phbjzRw0LwbXwhrEsRiVhhKllRQ+OAgZFwOxoBXx2R19cQ86NAdbUgutnBVJQgmFeBB0aQ6gkBNtYw0sKAUgHQQkIARRSQoJCAFKQwncxhuaixMRDwImIwVeVQtWTQouKgXRvBmSgxJoXg0X6N7OAAAG3klEQVR4nO2cjXLaOhCFLTVSZGODSWISfhOSAC0tue//dteG0AtmZUvGjpQ755tOZzKA0UHSSrvaVRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD1Kci6OcC6V6wYRSEEgTT6ppFBJPHz8/fRruXx9uR8/DuOBymV23WQ75GJ7e8F2Ut9KKaK7W3bJ23AguE9dyedEK9kNr/tYkE2pD+5ZDiPhj0b+o4FCHg618g7ME/FFAmppoFDyuxp9BbPQk/lor5An9wYCGXvv+dGN1grFxEjf/ileSLRVKB6NBTK2VR4YHEuF/B8LgYxNA/cS7RTyZyuBuUT35sZKoZhZCmRsXLeydo6NQh5bC8xXDdfmxkKhihoIZCx23IsWCsVbI4UscmttzBXKtJlAtnI7Ts0V8n5DhSxzOk6NFTbuwpyRA2F/MVbYdBbmzL6FwipD+mc+m82eXzSv9gffYx5Krce0iAQvEKOMcjo2rh1+U4XiN61vHvxVoKS42BKsku+zp6EFlhwkOTrvxokH0QxDhWpACrwtTzElVyevjpx3YGCsUNJb0svtigpejy/GHnRgYKyQk6GnZ8JKyuTw2vybxWk46drHlIh9nGrpSZAmMFdIhlXX5DAUUzZTnnRgYKxQUOFtjdcgBztvOjC4UmFCmxKPOjAwH6VkgCb1wljWYKqQfNvCq87SYKqQjEE9+TTfdJiu+Avqbaz3DTrRVCHt/y5D/2ei6b50TSpkUy/Ptc+40rdgT5EPu+sqjP1DbRAjMzv1d4axj7/RKWSrgdcajeM0mom4Z+uzRvNY258Kiex36q1G83hpzeH9yyR0HXOiMY95j6oVFp+KfOxIi6h+XYZJzm3Pt4wou9O1eoWM3WfSswXSQqEmGlXmfRF6pdHmDJh2gwmGXoQRP7E6xw9/GkpkG3/60Uph5bJfYiI9sTmW2SY9c4l9TwKKthlDNuek85EP3Wib9WXTi4ylHnSjdeaeTJYWEh/de8j22ZcqNF00CqbOR2qTHGGLBMycxLHEZlnQ0dhC4sCtxEYKAyXSpbnEtVOJzRTmBqfOXzzFad5XU4UmCft/uXfZic0VFkUXiwcziS5TMK9RmH9axk9GEnfuxul1CovioJ1J6vcfd+P0WoX7AqiPeomZM4nXK8zXDq6yusG6dOYvtqEwKCqFepq0sCOpq05sSWGxCRhUlipsXZnT1hQWEzKpMjqukkxbVLjvR/18JNOLvoBWFRb9SB+H5zw6sjUtK8xdK10QoO9oIrauMOC6gNz/Y5TuH6mJjdNZcJ3TgUJdxrSj1JQuFCp6KjrauNnH2mRY/1RSYcc5Yro5QKfkfegUKtH79aPWKNKJG5sulwvJdbES+jxpqGmMiIpdS+2EEuTeRvfQNii2GpqXOPlz35EapDq4Se9130cPjO4UyrBI0taUjnOqLeQOS4r4GLO4KEIoQRvTTUfzUPLs8AVkQq+mnIlIjRWDk4swPqolqnfzgXE1Yn1s2JRqlebk+mJx5qNzm5tVSdSsFp14iDI8yXxdEK2ibUJ50hLB0SqJmhy4DmLfSsTv1V+hGaQv8vwxKVF5R/1eB47ToozBOmqJSMq/ZVSWqOnCM0siki35pueA7hPdCeND276FVDcXX/KzVCunO0Q63X0Qjzk+jcplU5cVep/M210s1H+m/Yz4pFFS6DIqdyct5xWnhW89cZ4DJUWifXu721KV6CJf0zQ8lnzG2uLs07ZU3zPwazgIiju+cvaPpAf0nnaPZ+jigU/eZsPhzXPFNTrnJWm8Jt77vnrc3E0md8N55c0845anYX0iYQWl9V7qapjtHtryWsG1AaF6Hkpt0dSPWj609U0pXzZuzIWXo7VIFrTv/kqrvJczLldmUWFAzOh34FdYXeh0CumoNr4T45NOzg8b3tTxSrogI8PDXg3dnAE3vDCHduBVZJx4SXDfke8rm9hA3a8to2VjgQ+jriKlVomEB960v3b5ugQLOkw2sZbYr2iLouu5a3m48GhalbizE1g9nLRuQxX3nQ3RAzIyywbZM667BJBHNUfZl8w6L6RR0vgWuWG9Sc+dMiub+volmdBV57InGF4FJDUVwSSbL6rMlzyu9Q5+ZsajiQcTM2fjK6supEwr77F6yqxKByTvkec5p6zi4GtPtaWIFpqrjfs3a+uSM8llb6bfFY7vXFSxKSlG6cf2PBo9nsURb2btFBdRunkuy1z9mAxC4Sx/XXIheDLopXGc9naJzP+6pi1KFQ8crXdpnGVZ3Nutw+KJrlPX886Un/9ae6AqIlH5/84rDwAAAAAAAAAAfEv+Ba3YVZSxxQYhAAAAAElFTkSuQmCC"
+           alt="logo js" width="100" height="100">
+
+      <img *ngIf="assignementTransmis.matiere == 'Systeme'"
+           src="https://d27ugfx6t2l00k.cloudfront.net/media/filer_public_thumbnails/filer_public/50/ed/50ed84e8-33e8-46e3-a9c5-0285119b3bea/phot_g_menez.jpg__200x200_q85_crop_replace_alpha-%23FFFFFF_subsampling-2_upscale.jpg"
+           alt="logo menez" width="100" height="100" style="padding-right: 10px;">
+      <img *ngIf="assignementTransmis.matiere == 'Systeme'"
+           src="https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/1825/formation-langage-c-les-bases.png"
+           alt="logo c" width="100" height="100">
+
+      <img *ngIf="assignementTransmis.matiere == 'Marketing'"
+           src="http://smartdeal06.departement06.fr/documents/_processed_/2/0/csm_smartdeal_experts_tounsi_abdd4852ab.jpg"
+           alt="logo tounsi" width="100" height="100" style="padding-right: 10px;">
+      <img *ngIf="assignementTransmis.matiere == 'Marketing'"
+           src="https://img.freepik.com/vecteurs-premium/modele-logo-marketing_416562-615.jpg"
+           alt="logo marketing" width="100" height="100">
+
+      <img *ngIf="assignementTransmis.matiere == 'Reseaux'"
+           src="https://jm2l.linux-azur.org/image/users/126/photo.png"
+           alt="logo syska" width="100" height="100" style="padding-right: 10px;">
+      <img *ngIf="assignementTransmis.matiere == 'Reseaux'"
+           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt5iGGIZHHvZBaHsZf_EqDc_Fyoy7mKOXoNoBWpRzzDtVWQS5r75LcY7GsvdEH5Hv3UG8&usqp=CAU"
+           alt="logo bash" width="100" height="100">
+
+      <br>
+      <br>
+
+      <p>{{" Auteur  (nom de l'élève): " + assignementTransmis.auteur}}</p>
+      <br>
+      <p *ngIf="assignementTransmis.note">{{" Note : " + assignementTransmis.note}}</p>
+      <p *ngIf="assignementTransmis.remarques">{{" Remarques : " + assignementTransmis.remarques}}</p>
+
+    </mat-card-content>
+    <mat-card-actions *ngIf="token && droits">
+      <div id="bottom">
+        <mat-checkbox *ngIf="!assignementTransmis.rendu" (click)="onAssignmentRendu()">
+          Devoir rendu
+        </mat-checkbox>
+        <button mat-raised-button color="primary" (click)="onClickEdit()" [disabled]='!droits '>
+          Edit
+        </button>
+        <button class="deleteBtn" mat-flat-button color="warn" *ngIf='droits == "modif/lecture/suppr" '
+                (click)="onDeleteRendu()">
+          Supprimer rendu
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

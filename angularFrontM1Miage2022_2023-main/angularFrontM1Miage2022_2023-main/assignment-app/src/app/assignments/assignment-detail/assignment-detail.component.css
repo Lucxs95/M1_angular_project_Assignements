@@ -1,0 +1,10 @@
+mat-checkbox {
+    margin-right: 10px;
+}
+button :disabled {
+    color: #434343;
+}
+
+mat-card::ng-deep.mat-card-header-text {
+  width: 100%;
+}

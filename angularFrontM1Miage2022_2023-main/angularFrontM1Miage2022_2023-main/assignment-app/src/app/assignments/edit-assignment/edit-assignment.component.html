@@ -1,0 +1,58 @@
+<div class="container" *ngIf="assignment && droits">
+  <br>
+  <h1 style="padding-left: 20px ;">Edition de l'assignment {{assignment.nom}}</h1>
+  <form ngForm class="form" #formupdate (submit)="onSaveAssignment(); formupdate.reset(); " style="margin-top: 15%">
+    <br>
+    <mat-form-field style="padding-left: 20px ; padding-right: 20px">
+      <input matInput placeholder="Edition du nom" [(ngModel)]="nomAssignment" name="assignment-name" required>
+    </mat-form-field>
+
+
+    <mat-form-field style="padding-right: 20px">
+      <input matInput [(ngModel)]="auteur" name="auteur" placeholder="Auteur" required>
+    </mat-form-field>
+
+
+    <mat-form-field style="padding-right: 20px">
+      <input matInput [matDatepicker]="picker" placeholder="Edition de la date" [(ngModel)]="dateDeRendu" name="date"
+             required>
+      <mat-datepicker-toggle matSuffix [for]="picker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="padding-right: 40px">
+      <mat-label>Matiere</mat-label>
+      <mat-select matInput [(ngModel)]="matiere" placeholder="Matière" name="matiere" required>
+        <mat-option value="JavaScript">JavaScript</mat-option>
+        <mat-option value="Systeme">Systeme</mat-option>
+        <mat-option value="Marketing">Marketing</mat-option>
+        <mat-option value="Reseaux">Reseaux</mat-option>
+      </mat-select>
+
+    </mat-form-field>
+
+    <div
+      *ngIf="rendu && ((utilisateur == 'syska' && matiere == 'Reseaux') || (utilisateur == 'tounsi' && matiere == 'Marketing') || (utilisateur == 'menez' && matiere == 'Systeme') || (utilisateur == 'buffa' && matiere == 'JavaScript'))">
+      <mat-form-field style="padding-right: 20px">
+        <input matInput [(ngModel)]="note" name="note" placeholder="Note (entre 0 et 20)" required type="number" min="0"
+               max="20">
+      </mat-form-field>
+
+    </div>
+
+    <div
+      *ngIf=" rendu && ((utilisateur == 'syska' && matiere == 'Reseaux') || (utilisateur == 'tounsi' && matiere == 'Marketing') || (utilisateur == 'menez' && matiere == 'Systeme') || (utilisateur == 'buffa' && matiere == 'JavaScript'))">
+
+      <mat-form-field style="padding-right: 20px">
+        <textarea matInput [(ngModel)]="remarques" name="remarques" placeholder="Remarques"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" [disabled]="((!nomAssignment)||(!dateDeRendu)||(!matiere)||(!auteur))">
+        Sauver
+      </button>
+    </div>
+  </form>
+</div>

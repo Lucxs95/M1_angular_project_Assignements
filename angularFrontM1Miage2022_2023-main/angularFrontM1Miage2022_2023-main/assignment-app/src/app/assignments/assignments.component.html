@@ -1,0 +1,93 @@
+<main class="container" xmlns="http://www.w3.org/1999/html">
+  <br>
+
+  <div class="btnRendu">
+    <a>
+      <button class="ajouterBtn" mat-flat-button color="primary" (click)="onChangeBooleanRenduFiltre()">
+        Assignements rendus uniquement
+        <mat-radio-button checked="{{booleanRendusFiltre}}" disabled
+                          style="margin-top: -7px; margin-right: -10px; margin-left: 3px"></mat-radio-button>
+      </button>
+    </a>
+  </div>
+  <div class="ajouterBtn" *ngIf="droits">
+    <a routerLink="/add">
+      <button class="ajouterBtn" mat-flat-button color="accent" (click)="onAddAssignmentBtnClick()">
+        Ajouter Assignment
+      </button>
+    </a>
+  </div>
+  <br>
+
+  <div class="searchBar">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Rechercher" [(ngModel)]="searchText" (keyup)="onSearchTextChange()">
+    </mat-form-field>
+  </div>
+
+  <br>
+  <table mat-table [dataSource]="assignments" class="mat-elevation-z8" style="padding-left: 10%">
+
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef> Nom</th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.nom}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="rendu">
+      <th mat-header-cell *matHeaderCellDef> Rendu</th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.rendu}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateDeRendu">
+      <th mat-header-cell *matHeaderCellDef> Date de rendu</th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.dateDeRendu | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="auteur">
+      <th mat-header-cell *matHeaderCellDef> Auteur</th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.auteur}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="matiere">
+      <th mat-header-cell *matHeaderCellDef> Matiere</th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.matiere}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="note">
+      <th mat-header-cell *matHeaderCellDef> Note</th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.note}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="remarques">
+      <th mat-header-cell *matHeaderCellDef> Remarques</th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.remarques}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef hidden> Actions</th>
+
+      <button mat-icon-button *matCellDef="let assignment" (click)="onDeleteRendu(assignment.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-container matColumnDef="actions2">
+      <th mat-header-cell *matHeaderCellDef hidden> Actions</th>
+      <button mat-icon-button *matCellDef="let assignment" routerLink="/assignment/{{assignment.id}}/edit">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </ng-container>
+    <ng-container matColumnDef="actions3">
+      <th mat-header-cell *matHeaderCellDef hidden> Actions</th>
+      <button mat-icon-button *matCellDef="let assignment" routerLink="/assignment/{{assignment.id}}">
+        <mat-icon>remove_red_eye</mat-icon>
+      </button>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumn()"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+  </table>
+
+
+  <mat-paginator [length]="totalDocs" [pageSize]="limit" (page)="paginatorUpdate($event)"
+                 style="padding-right: 12%"></mat-paginator>
+</main>

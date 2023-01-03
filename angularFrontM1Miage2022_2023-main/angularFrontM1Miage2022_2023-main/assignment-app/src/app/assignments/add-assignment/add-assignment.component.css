@@ -1,0 +1,88 @@
+form {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15px;
+}
+
+body {
+  background: #34496e;
+  font-family: 'Inconsolata', monospace;
+}
+
+#console {
+  height: 335px;
+  width: 495px;
+  background: #222;
+  margin: 0 auto;
+  margin-top: 80px;
+  border: 4px solid lightgray;
+  border-top: 35px solid lightgray;
+}
+
+p {
+  width: 30%;
+  margin-top: -30px;
+  clear: right;
+  font-size: 1.25em;
+}
+
+.console-scripts {
+  color: white;
+  padding-left: 5px;
+  font-size: 1.5em;
+  margin-top: -5px;
+}
+
+#controls {
+  text-align: center;
+  float: right;
+  margin-top: -35px;
+}
+
+#min {
+  width: 25px;
+  height: 25px;
+  background: #eeee73;
+  display: inline-block;
+  margin-right: 1px;
+}
+
+#max {
+  width: 25px;
+  height: 25px;
+  background: #87D37C;
+  display: inline-block;
+  margin-right: 1px;
+}
+
+#exit {
+  width: 25px;
+  height: 25px;
+  background: #e08d8d;
+  display: inline-block;
+}
+
+.glyphicon {
+  text-align: center;
+  margin-top: 4px;
+  font-size: 1.2em;
+  color: #484848;
+}
+
+#cursor {
+  font-size: 1.3em;
+  margin-left: 5px;
+  animation: blink-animation 1.2s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1.2s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,26 @@
+.rendu {
+    color: green;
+}
+
+.nonRendu {
+    color: red;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.ajouterBtn {
+    align-self: flex-end;
+  margin-top: -33px;
+  margin-right: 1%;
+}
+.btnRendu {
+  align-self: flex-start;
+  margin-left: 1%;
+}
+
+.searchBar {
+  margin-left: 1%;
+  margin-right: 1%;
+}

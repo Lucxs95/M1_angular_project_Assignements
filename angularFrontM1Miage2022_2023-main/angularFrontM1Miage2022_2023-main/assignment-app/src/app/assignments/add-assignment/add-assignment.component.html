@@ -1,0 +1,61 @@
+<div class="container" *ngIf="droits">
+  <br>
+  <h1 style="padding-left: 20px ;">Création d'un assignment</h1>
+
+  <form ngForm (submit)="onSubmit(); assignmentForm.reset()" #assignmentForm style="margin-top: 7%">
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="nomDevoir" name="nom" placeholder="Nom du devoir" required
+             onkeyup="mySpan.innerHTML=this.value">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="auteur" name="auteur" placeholder="Auteur" required
+             onkeyup="mySpan2.innerHTML=this.value">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date de rendu</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Date de rendu" [(ngModel)]="dateDeRendu" name="date"
+             required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Matiere</mat-label>
+      <mat-select matInput [(ngModel)]="matiere" placeholder="Matière" name="matiere" required
+
+
+      >
+        <mat-option value="JavaScript">JavaScript</mat-option>
+        <mat-option value="Systeme">Systeme</mat-option>
+        <mat-option value="Marketing">Marketing</mat-option>
+        <mat-option value="Reseaux">Reseaux</mat-option>
+      </mat-select>
+
+    </mat-form-field>
+
+
+    <button mat-stroked-button color="primary">
+      Ajouter un Devoir
+    </button>
+  </form>
+
+  <div id="console" style="margin-top: 2%">
+    <!-- the border -->
+    <p>Console</p>
+    <div id="controls"> <!-- the controls -->
+
+      <div id="min" title="Restore Down"><span class="glyphicon glyphicon-triangle-bottom"></span></div>
+      <div id="max" title="Restore Up"><span class="glyphicon glyphicon-fullscreen"></span></div>
+      <div id="exit" title="Clear Console"><span class="glyphicon glyphicon-remove"></span></div>
+    </div>
+    <section class="console-scripts">
+      C:\><span id="cursor">_</span><br><br>
+      C:\> Nom du devoir : <span id="mySpan"></span><br><br>
+      C:\> Auteur : <span id="mySpan2"></span><br><br>
+    </section>
+  </div>
+</div>
