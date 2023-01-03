@@ -5,13 +5,11 @@
   <form ngForm (submit)="onSubmit(); assignmentForm.reset()" #assignmentForm style="margin-top: 7%">
 
     <mat-form-field>
-      <input matInput [(ngModel)]="nomDevoir" name="nom" placeholder="Nom du devoir" required
-             onkeyup="mySpan.innerHTML=this.value">
+      <input matInput [(ngModel)]="nomDevoir" name="nom" placeholder="Nom du devoir" required>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput [(ngModel)]="auteur" name="auteur" placeholder="Auteur" required
-             onkeyup="mySpan2.innerHTML=this.value">
+      <input matInput [(ngModel)]="auteur" name="auteur" placeholder="Auteur" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -53,9 +51,12 @@
       <div id="exit" title="Clear Console"><span class="glyphicon glyphicon-remove"></span></div>
     </div>
     <section class="console-scripts">
-      C:\><span id="cursor">_</span><br><br>
-      C:\> Nom du devoir : <span id="mySpan"></span><br><br>
-      C:\> Auteur : <span id="mySpan2"></span><br><br>
+      <br>
+      C:\> Nom du devoir : <span id="mySpan">{{this.nomDevoir}}</span><br><br>
+      C:\> Auteur : <span >{{this.auteur}}</span><br><br>
+      C:\> Date de rendu : <span> {{this.dateDeRendu}} </span><br><br>
+      C:\> Matiere : <span> {{this.matiere}}</span><br><br>
+      C:\><span id="cursor">Appuyer sur ajouter un devoir une fois fini</span><br><br>
     </section>
   </div>
 </div>

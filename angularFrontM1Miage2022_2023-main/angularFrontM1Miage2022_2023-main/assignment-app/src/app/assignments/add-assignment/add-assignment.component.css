@@ -70,10 +70,11 @@ p {
 }
 
 #cursor {
-  font-size: 1.3em;
+  font-size: 1em;
   margin-left: 5px;
   animation: blink-animation 1.2s steps(5, start) infinite;
-  -webkit-animation: blink-animation 1.2s steps(2, start) infinite;
+  -webkit-animation: blink-animation 2.2s steps(2, start) infinite;
+
 }
 
 @keyframes blink-animation {

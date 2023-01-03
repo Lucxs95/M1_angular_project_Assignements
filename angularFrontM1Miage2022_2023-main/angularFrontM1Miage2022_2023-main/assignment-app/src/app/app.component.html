@@ -81,7 +81,7 @@
         <mat-list-item *ngIf="droits">
           <a mat-button color="primary" routerLink="/add" >Ajouter un devoir</a>
         </mat-list-item>
-        <mat-list-item *ngIf="droits && utilisateur != 'admin'">
+        <mat-list-item *ngIf="droits && utilisateur != 'admin' && utilisateur != 'user'">
           <a mat-button color="primary" routerLink="/correction" matBadge="{{nbCopies}}" matBadgePosition="above after" matBadgeColor="accent">Mes devoirs a corriger
 
           </a>
