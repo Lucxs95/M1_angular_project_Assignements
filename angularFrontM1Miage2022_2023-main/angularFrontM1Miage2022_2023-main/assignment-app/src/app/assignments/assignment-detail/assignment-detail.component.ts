@@ -24,9 +24,10 @@ export class AssignmentDetailComponent implements OnInit {
     this.assignmentService.updateAssignment(this.assignementTransmis)
       .subscribe(message => {
         console.log(message);
-        this.router.navigate(["/home"]);
+
+        window.location.reload();
       });
-    window.location.reload();
+
   }
 
   onDeleteRendu(){

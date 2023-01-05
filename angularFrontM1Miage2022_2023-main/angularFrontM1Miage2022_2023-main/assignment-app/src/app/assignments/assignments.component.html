@@ -12,7 +12,7 @@
   </div>
   <div class="ajouterBtn" *ngIf="droits">
     <a routerLink="/add">
-      <button class="ajouterBtn" mat-flat-button color="accent" (click)="onAddAssignmentBtnClick()">
+      <button class="ajouterBtn" mat-flat-button color="accent">
         Ajouter Assignment
       </button>
     </a>
@@ -26,7 +26,7 @@
   </div>
 
   <br>
-  <table mat-table [dataSource]="assignments" class="mat-elevation-z8" style="padding-left: 10%">
+  <table mat-table [dataSource]="dataSourceAssignments" class="mat-elevation-z8" style="padding-left: 10%">
 
     <ng-container matColumnDef="nom">
       <th mat-header-cell *matHeaderCellDef> Nom</th>
@@ -35,7 +35,16 @@
 
     <ng-container matColumnDef="rendu">
       <th mat-header-cell *matHeaderCellDef> Rendu</th>
-      <td mat-cell *matCellDef="let assignment"> {{assignment.rendu}} </td>
+      <td mat-cell *matCellDef="let assignment">
+        <div *ngIf="assignment.rendu">
+          <mat-icon class="green-icon">check_circle</mat-icon>
+        </div>
+
+        <div *ngIf="!assignment.rendu">
+          <mat-icon class="red-icon"> clear</mat-icon>
+        </div>
+
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="dateDeRendu">
@@ -87,7 +96,8 @@
     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
   </table>
 
-
-  <mat-paginator [length]="totalDocs" [pageSize]="limit" (page)="paginatorUpdate($event)"
+  <mat-paginator #paginatorAssignment="matPaginator" [pageSizeOptions]="[5,10,20,50,100]"
                  style="padding-right: 12%"></mat-paginator>
+
+
 </main>

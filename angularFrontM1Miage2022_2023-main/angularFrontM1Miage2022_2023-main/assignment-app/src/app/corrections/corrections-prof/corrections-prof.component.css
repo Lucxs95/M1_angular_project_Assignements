@@ -13,3 +13,10 @@
 .ajouterBtn {
   align-self: flex-end;
 }
+
+.green-icon {
+  color: green;
+}
+.red-icon {
+  color: red;
+}
