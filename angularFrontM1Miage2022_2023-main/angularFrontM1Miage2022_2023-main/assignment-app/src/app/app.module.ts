@@ -36,6 +36,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import { CorrectionsProfComponent } from './corrections/corrections-prof/corrections-prof.component';
+import { NgMaterialModule } from './ng-material/ng-material.module';
+
 
 
 const routes: Routes = [
@@ -79,7 +81,8 @@ const routes: Routes = [
     MatSlideToggleModule,
     HttpClientModule,
     MatPaginatorModule,
-    MatSnackBarModule, MatTableModule, MatSortModule, MatBadgeModule
+    MatSnackBarModule, MatTableModule, MatSortModule, MatBadgeModule,
+    NgMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

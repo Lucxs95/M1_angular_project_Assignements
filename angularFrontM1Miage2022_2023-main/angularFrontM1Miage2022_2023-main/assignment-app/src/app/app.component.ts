@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from './shared/auth.service';
 import {AssignmentsService} from './shared/assignments.service';
-import {Observable, of} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { MatBasicComponent } from './ng-material/mat-basic/mat-basic.component';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit {
 
 
   constructor(private authService: AuthService, private router: Router,
-              private assignmentsService: AssignmentsService, private http: HttpClient, private snackBar: MatSnackBar) {
+              private assignmentsService: AssignmentsService, private http: HttpClient, private snackBar: MatSnackBar,public dialog: MatDialog) {
     // get local storage token
     const token = localStorage.getItem('ACCESS_TOKEN');
 
@@ -44,14 +45,15 @@ export class AppComponent implements OnInit {
     this.setAssignments();
   }
 
-  private validCredentials = [
-    {username: 'user', password: 'password'},
-    {username: 'admin', password: 'password'},
-    {username: 'syska', password: 'password'},
-    {username: 'menez', password: 'password'},
-    {username: 'buffa', password: 'password'},
-    {username: 'tounsi', password: 'password'}
-  ];
+  openDialog() {
+    const dialogRef = this.dialog.open(MatBasicComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+
 
   droits = localStorage.getItem('ROLE');
   utilisateur = this.getUtilisateur();
@@ -59,9 +61,9 @@ export class AppComponent implements OnInit {
 
   setAssignments() {
 
-    this.assignmentsService.getAssignmentsPagineWhereProf(this.page, this.limit)
+    this.assignmentsService.getAssignments()
       .subscribe(data => {
-        let assignments = data.docs.filter(
+        let assignments = data.filter(
           assignment => assignment.matiere === this.matiereProf && assignment.rendu === true && assignment.note === null);
         console.log(assignments);
         this.nbCopies = assignments.length;
@@ -103,51 +105,6 @@ export class AppComponent implements OnInit {
     }
     return "non connecté";
   }
-
-  login(username: string, password: string): Observable<boolean> {
-    // vérifiez si les informations de connexion de l'utilisateur sont valides
-    // en comparant avec la liste de login/passwords valides
-    const isValid = this.validCredentials.some(credential => {
-      return credential.username === username && credential.password === password;
-    });
-
-    // si les informations de connexion sont valides, connectez l'utilisateur
-    // et retournez un observable qui émet la valeur true
-    if (isValid) {
-      localStorage.setItem('ACCESS_TOKEN', "access_token");
-      if (username === "admin") {
-        localStorage.setItem('DROITS', "modif/lecture/suppr");
-        localStorage.setItem('ROLE', "admin");
-      } else if (username === "user") {
-        localStorage.setItem('DROITS', "modif/lecture");
-        localStorage.setItem('ROLE', "user");
-      } else if (username === "syska") {
-        localStorage.setItem('DROITS', "modif/lecture");
-        localStorage.setItem('ROLE', "syska");
-      } else if (username === "menez") {
-        localStorage.setItem('DROITS', "modif/lecture");
-        localStorage.setItem('ROLE', "menez");
-      } else if (username === "buffa") {
-        localStorage.setItem('DROITS', "modif/lecture");
-        localStorage.setItem('ROLE', "buffa");
-      } else if (username === "tounsi") {
-        localStorage.setItem('DROITS', "modif/lecture");
-        localStorage.setItem('ROLE', "tounsi");
-      }
-
-
-      window.location.reload();
-      this.snackBar.open('Vous êtes maintenant connecté !', 'OK', {
-        duration: 2000,
-      });
-
-
-      return of(true);
-    }
-    // sinon, retournez un observable qui émet la valeur false
-    return of(false);
-  }
-
   logout() {
     localStorage.removeItem('ACCESS_TOKEN');
     localStorage.removeItem('DROITS')
@@ -158,15 +115,8 @@ export class AppComponent implements OnInit {
       duration: 2000,
     });
   }
-
-
   initialiserlabase() {
     this.assignmentsService.peuplerBD();
     window.location.reload();
   }
-
-  connexion() {
-    this.connexionClicked = !this.connexionClicked;
-  }
-
 }

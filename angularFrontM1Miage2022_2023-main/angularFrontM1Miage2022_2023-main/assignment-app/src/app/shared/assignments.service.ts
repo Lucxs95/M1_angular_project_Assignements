@@ -20,7 +20,7 @@ export class AssignmentsService {
   constructor(private loggingService: LoggingService, private http: HttpClient) {
   }
 
-  url = "https://lucas-api.angular.bdemiagenice.fr/api/assignments";
+  url = "http://localhost:8010/api/assignments";
 
   ngOnInit(): void {
     this.getAssignments().subscribe(assignments => {
