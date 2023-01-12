@@ -1,0 +1,27 @@
+<div class="grid">
+
+  <form class="form login">
+
+    <div class="form__field">
+      <label for="login__username">
+        <mat-icon>person</mat-icon>
+        <span class="hidden">Username</span></label>
+      <input [(ngModel)]="username" autocomplete="off" id="login__username" type="text" name="username"
+             class="form__input" placeholder="Username" required>
+    </div>
+
+    <div class="form__field">
+      <label for="login__password">
+        <mat-icon>password</mat-icon>
+
+        <span class="hidden">Password</span></label>
+      <input [(ngModel)]="password" id="login__password" type="password" name="password" class="form__input"
+             placeholder="Password" required>
+    </div>
+
+    <div class="form__field">
+      <input id="buttonConnexion" type="submit" value="Connexion" (click)="login(username, password )">
+    </div>
+  </form>
+
+</div>
