@@ -46,5 +46,3 @@ Voici la vidéo de démonstration de notre site : https://youtu.be/Z4zcbpKgEWI
 Nous avons repris deux morceaux de codes lors de ce projet :
 
 - Pour réaliser le css de la console dans la page d'ajout : https://codepen.io/xGabey/pen/ggPvwQ 
-
-- Pour créer la page de login : https://codepen.io/marcobiedermann/pen/nbpKWV 
