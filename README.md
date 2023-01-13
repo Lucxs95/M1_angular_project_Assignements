@@ -39,7 +39,7 @@ Avec un compe admin vous pourrez, en plus **d'ajouter** et **modifier**, **suppr
 Si vous etes un professeur faisant parti de cette liste et qu'un devoir est marqué comme rendu, vous aurez une **notification** afin d'y attribuer une note et une remarque. Une fois cela fait la notification **disparait** du tableau des devoirs à corriger.
 
 
-Voici la vidéo de démonstration de notre site : https://youtu.be/Z4zcbpKgEWI
+Voici la vidéo de démonstration de notre site : https://youtu.be/rhia4R_y7Ow
 
 ### Annexes : 
 
